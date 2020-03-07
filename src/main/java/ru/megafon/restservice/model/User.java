@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table
+@Table (name = "usr")
 public class User {
     @Id
     @GeneratedValue
@@ -14,9 +14,22 @@ public class User {
     @Column
     private Role role;
 
-    public User(){}
+    public User(){
+    }
 
-    enum Role{
+    public User(Long id, String name, Role role) {
+        this.id = id;
+        this.name = name;
+        this.role = role;
+    }
+
+    public User(String name, Role role) {
+        this.name = name;
+        this.role = role;
+    }
+
+    public enum Role{
+        SUPPORT,
         CUSTOMER,
         OPERATOR,
         ADMINISTRATOR
