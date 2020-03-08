@@ -10,28 +10,28 @@ public class User {
     @GeneratedValue
     private Long id;
     @Column
-    private String name;
+    private String login;
     @Column
     private Role role;
+    @Column
+    private String password;
+
 
     public User(){
     }
 
-    public User(Long id, String name, Role role) {
-        this.id = id;
-        this.name = name;
+    public User(String login, Role role, String password) {
+        this.login = login;
         this.role = role;
+        this.password = password;
     }
 
-    public User(String name, Role role) {
-        this.name = name;
-        this.role = role;
+    public static User createUser(String login, Role role, String password) {
+        return new User(login, role, password);
     }
 
     public enum Role{
-        SUPPORT,
-        CUSTOMER,
-        OPERATOR,
+        USER,
         ADMINISTRATOR
     }
 }

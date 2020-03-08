@@ -36,6 +36,9 @@ public class Order {
         this.status = Status.OPEN;
     }
 
+    public Order() {
+    }
+
     public enum Status {
         OPEN,
         IN_PROGRESS,

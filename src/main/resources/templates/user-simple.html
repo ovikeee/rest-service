@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+
+<h2>Your orders</h2>
+<ul th:unless="${#lists.isEmpty(orders)}">
+    <li th:each="order : ${orders}">
+        <span th:text="${order.summary}"></span>
+    </li>
+</ul>
+
+</body>
+</html>

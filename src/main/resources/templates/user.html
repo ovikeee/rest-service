@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+
+    <link rel="stylesheet" type="text/css"
+          href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+
+    <script type="text/javascript"
+            src="webjars/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+            src="main.js"></script>
+</head>
+<body>
+
+<h2>Your Orders</h2>
+<ul class="list-group" th:unless="${#lists.isEmpty(orders)}">
+    <li class="list-group-item" th:each="order : ${orders}">
+        <span class="badge" th:text="${order.summary}">1</span>
+        <span th:text="${order.description}"></span>
+    </li>
+</ul>
+
+<h2>Create Order</h2>
+<div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Order summary</span>
+    <input id="order-summary" type="text" class="form-control" aria-describedby="basic-addon1"/>
+</div>
+<button type="button" class="btn btn-default" onclick="createOrder()">Create new</button>
+
+</body>
+</html>

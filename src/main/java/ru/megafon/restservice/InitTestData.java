@@ -25,9 +25,9 @@ public class InitTestData {
 
     @PostConstruct
     public void initTestData(){
-        Long firstReporterUserId = userRepository.save(new User( "KimChinIn", User.Role.CUSTOMER)).getId();
-        Long firstAssigneeUserId = userRepository.save(new User( "SeiFeiHun", User.Role.SUPPORT)).getId();
+        Long firstReporterUserId = userRepository.save(new User( "user1", User.Role.USER, "123")).getId();
+        Long firstAssigneeUserId = userRepository.save(new User( "admin1", User.Role.ADMINISTRATOR, "12345")).getId();
 
-        orderRepository.save(new Order("Make a Rocket", "Big Nuclear Rocket", firstReporterUserId, firstAssigneeUserId));
+        orderRepository.save(new Order("Summary1", "Some description", firstReporterUserId, firstAssigneeUserId));
     }
 }
